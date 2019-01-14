@@ -12,9 +12,10 @@
 
     <modules>
         <module>admin-spring-cloud-server</module>
+        <module>admin-spring-cloud-config</module>
         <module>admin-modules</module>
-        <module>admin-modules/admin-core</module>
-        <module>admin-modules/admin-sy</module>
+
+        <!--<module>admin-modules/admin-sy</module>-->
     </modules>
     <!-- parent指明继承关系，给出被继承的父项目的具体信息-->
     <parent>
@@ -29,15 +30,43 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
+        <spring.jpa.version>2.1.2.RELEASE</spring.jpa.version>
+        <spring.redis.version>2.1.4.RELEASE</spring.redis.version>
+        <spring.web.version>2.1.2.RELEASE</spring.web.version>
     </properties>
     <dependencyManagement>
+
         <dependencies>
+            <!-- web -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.web.version}</version>
+            </dependency>
+            <!-- srping cloud -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
+            <!-- jpa -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring.jpa.version}</version>
+            </dependency>
+            <!-- redis -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>${spring.redis.version}</version>
+            </dependency>
+
         </dependencies>
+
+
     </dependencyManagement>
 
 
