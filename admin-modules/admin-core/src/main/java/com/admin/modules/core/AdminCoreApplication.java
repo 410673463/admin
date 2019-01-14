@@ -1,4 +1,4 @@
-package com.admin.modules.sy;
+package com.admin.modules.core;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
