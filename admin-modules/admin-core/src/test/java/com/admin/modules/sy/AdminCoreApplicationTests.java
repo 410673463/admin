@@ -1,4 +1,4 @@
-package com.admin.modules.core;
+package com.admin.modules.sy;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
