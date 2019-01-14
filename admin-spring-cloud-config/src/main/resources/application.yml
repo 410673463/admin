@@ -1,0 +1,9 @@
+server:
+  port: 8012
+spring:
+  application:
+    name: admin-spring-cloud-config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8010/eureka/

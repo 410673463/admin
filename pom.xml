@@ -63,10 +63,7 @@
                 <artifactId>spring-data-redis</artifactId>
                 <version>${spring.redis.version}</version>
             </dependency>
-
         </dependencies>
-
-
     </dependencyManagement>
 
 

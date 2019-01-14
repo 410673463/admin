@@ -1,0 +1,8 @@
+server:
+  port: 8010
+eureka:
+  client:
+    #禁止自己当做服务注册
+    register-with-eureka: false
+    #屏蔽注册信息
+    fetch-registry: false
