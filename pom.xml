@@ -12,7 +12,6 @@
 
     <modules>
         <module>admin-spring-cloud-server</module>
-        <module>admin-spring-cloud-config</module>
         <module>admin-modules</module>
 
         <!--<module>admin-modules/admin-sy</module>-->
@@ -50,6 +49,16 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>2.0.2.RELEASE</version>
             </dependency>
             <!-- jpa -->
             <dependency>
