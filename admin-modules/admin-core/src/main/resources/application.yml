@@ -1,11 +1,15 @@
 
 server:
-  port: 8021
+  port: 8023
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8010/eureka/
-
+  instance:
+    #告诉Eureka服务端，如果我2s之内没有给你发心跳，就代表我“死”了，将我踢出掉。
+    lease-expiration-duration-in-seconds: 10
+    # 每间隔1s，向Eureka服务端发送一次心跳，证明自己依然”存活“。
+    lease-renewal-interval-in-seconds: 5
 #  servlet:
 #    context-path: /service_client
 logging:
