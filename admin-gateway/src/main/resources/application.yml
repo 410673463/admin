@@ -9,29 +9,40 @@ eureka:
 #    context-path: /service_client
 logging:
   level:
-    org.springframework.cloud.gateway: debug
+    org.springframework.cloud.gateway: trace
     com.netfix: info
 spring:
+  redis:
+    lettuce:
+      pool:
+        max-active: 100 # 连接池最大连接数（使用负值表示没有限制）
+        max-idle: 50 # 连接池中的最大空闲连接
+        min-idle: 10 # 连接池中的最小空闲连接
+        max-wait: 6000 # 连接池最大阻塞等待时间（使用负值表示没有限制）
+    timeout: 1000
+    host: 127.0.0.1
+    port: 6379
+    database: 0
   application:
     name: admin-gateway
   cloud:
     gateway:
-      routes:
-      - id: admin-core
-        #跳转路径
-        uri: lb://admin-core
-        order: 0
-        #路由匹配规则
-        predicates:
-        - Path=/admin-core/{segment}
-        filters:
+      #routes:
+      #- id: admin-core
+      #  #跳转路径
+       # uri: lb://admin-core
+       # order: 0
+       # #路由匹配规则
+       # predicates:
+       # - Path=/admin-core/{segment}
+       # filters:
         #前缀去除层级
-        - StripPrefix=1
+       # - StripPrefix=1
         #断路器
-        - name: Hystrix
-          args:
-            name: fallbackcmd
-            fallbackUri: forward:/fallback
+        #- name: Hystrix
+        #  args:
+         #   name: fallbackcmd
+        #    fallbackUri: forward:/fallback
       default-filters:
         - Elapsed=true
     discovery:
