@@ -1,6 +1,6 @@
 
 server:
-  port: 8021
+  port: 8022
 eureka:
   client:
     serviceUrl:
@@ -14,7 +14,7 @@ eureka:
 #    context-path: /service_client
 logging:
   level:
-    com.netfix: info
+    com.netfix: warn
 spring:
   application:
     name: admin-core

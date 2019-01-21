@@ -9,8 +9,8 @@ eureka:
 #    context-path: /service_client
 logging:
   level:
-    org.springframework.cloud.gateway: trace
-    com.netfix: info
+    org.springframework.cloud.gateway: error
+    com.netfix: error
 spring:
   redis:
     lettuce:
@@ -29,20 +29,26 @@ spring:
     gateway:
       #routes:
       #- id: admin-core
-      #  #跳转路径
-       # uri: lb://admin-core
-       # order: 0
-       # #路由匹配规则
-       # predicates:
-       # - Path=/admin-core/{segment}
-       # filters:
+        #跳转路径
+        #uri: lb://admin-core
+        #order: 0
+        #路由匹配规则
+        #predicates:
+        #- Path=/admin-core/{segment}
+        #filters:
         #前缀去除层级
-       # - StripPrefix=1
+        #- StripPrefix=1
         #断路器
         #- name: Hystrix
-        #  args:
-         #   name: fallbackcmd
-        #    fallbackUri: forward:/fallback
+          #args:
+            #name: fallbackcmd
+            #fallbackUri: forward:/fallback
+        #gateway自带ip限流
+        #- name: RequestRateLimiter
+          #args:
+            #redis-rate-limiter.replenishRate: 1  # 令牌桶补充速量
+            #redis-rate-limiter.burstCapacity: 3  # 令牌桶 最大量
+            #key-resolver: "#{@remoteAddrKeyResolver}" #SPEL表达式去的对应的bean
       default-filters:
         - Elapsed=true
     discovery:

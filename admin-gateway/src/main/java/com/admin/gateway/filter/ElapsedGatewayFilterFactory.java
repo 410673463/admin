@@ -41,7 +41,7 @@ public class ElapsedGatewayFilterFactory  extends AbstractGatewayFilterFactory<E
                             if (config.isWithParams()) {
                                 sb.append(" params:").append(exchange.getRequest().getQueryParams());
                             }
-                            log.info(sb.toString());
+                            log.warn(sb.toString());
                         }
                     })
             );
